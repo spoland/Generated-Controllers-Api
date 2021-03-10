@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GeneratedControllers</name>
+    </assembly>
+    <members>
+        <member name="T:GeneratedControllers.Contracts.IContract`1">
+            <summary>
+            Marker interface.
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:GeneratedControllers.Contracts.IContract`1.Id">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>
+            The identifier.
+            </value>
+        </member>
+        <member name="T:GeneratedControllers.Contracts.v1.Developer">
+            <summary>
+            An example developer model.
+            </summary>
+            <seealso cref="T:System.ComponentModel.DataAnnotations.IValidatableObject" />
+        </member>
+        <member name="T:GeneratedControllers.Contracts.v1.Manager">
+            <summary>
+            An example manager model.
+            </summary>
+            <seealso cref="T:System.ComponentModel.DataAnnotations.IValidatableObject" />
+        </member>
+        <member name="T:GeneratedControllers.Contracts.v1.ProductOwner">
+            <summary>
+            An example product owner model.
+            </summary>
+            <seealso cref="T:System.ComponentModel.DataAnnotations.IValidatableObject" />
+        </member>
+        <member name="T:GeneratedControllers.Contracts.v2.Developer">
+            <summary>
+            An example developer model.
+            </summary>
+            <seealso cref="T:System.ComponentModel.DataAnnotations.IValidatableObject" />
+        </member>
+        <member name="T:GeneratedControllers.Contracts.v2.Manager">
+            <summary>
+            An example manager model.
+            </summary>
+            <seealso cref="T:System.ComponentModel.DataAnnotations.IValidatableObject" />
+        </member>
+        <member name="M:GeneratedControllers.Conventions.ApiExplorerGroupPerVersionConvention.Apply(Microsoft.AspNetCore.Mvc.ApplicationModels.ControllerModel)">
+            <summary>
+            Called to apply the convention to the <see cref="T:Microsoft.AspNetCore.Mvc.ApplicationModels.ControllerModel" />.
+            </summary>
+            <param name="controller">The <see cref="T:Microsoft.AspNetCore.Mvc.ApplicationModels.ControllerModel" />.</param>
+        </member>
+        <member name="T:GeneratedControllers.Swagger.ServiceCollectionExtensions">
+            <summary>
+            Swagger related service collection extension methods
+            </summary>
+        </member>
+        <member name="M:GeneratedControllers.Swagger.ServiceCollectionExtensions.AddSwagger(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Adds the swagger.
+            </summary>
+            <param name="services">The services.</param>
+            <returns></returns>
+        </member>
+        <member name="T:GeneratedControllers.Swagger.SwaggerConfiguration">
+            <summary>
+            Swagger configuration options
+            </summary>
+        </member>
+        <member name="M:GeneratedControllers.Swagger.SwaggerConfiguration.#ctor(System.Collections.Generic.List{System.String})">
+            <summary>
+            Initializes a new instance of the <see cref="T:GeneratedControllers.Swagger.SwaggerConfiguration"/> class.
+            </summary>
+            <param name="apiVersions">The API versions.</param>
+        </member>
+        <member name="P:GeneratedControllers.Swagger.SwaggerConfiguration.ApiVersions">
+            <summary>
+            Gets the API versions.
+            </summary>
+        </member>
+    </members>
+</doc>
