@@ -18,13 +18,13 @@ namespace GeneratedControllers
         {
             services.AddControllers(opt =>
             {
-                opt.Conventions.Add(new GenericControllerRouteConvention());
-                opt.Conventions.Add(new GenericRestControllerNameConvention());
+                opt.Conventions.Add(new GeneratedRouteControllerModelConvention());
+                opt.Conventions.Add(new GeneratedNameControllerModelConvention());
                 opt.Conventions.Add(new ApiExplorerGroupPerVersionConvention());
             }
             ).ConfigureApplicationPartManager(pm =>
             {
-                pm.FeatureProviders.Add(new GenericTypeControllerFeatureProvider());
+                pm.FeatureProviders.Add(new GeneratedControllerApplicationFeatureProvider());
             });
 
             services.AddSwagger();

@@ -39,8 +39,6 @@ namespace GeneratedControllers.Swagger
 
             services.AddSwaggerGen(c =>
             {
-                c.DocumentFilter<HideGeneratedControllerDocumentFilter>();
-
                 apiVersions.ForEach(v => c.SwaggerDoc(v, new OpenApiInfo
                 {
                     Title = "Generated Controller API",

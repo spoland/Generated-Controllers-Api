@@ -1,14 +1,13 @@
 ﻿using GeneratedControllers.Controllers;
 using Microsoft.AspNetCore.Mvc.ApplicationModels;
-using System;
 
 namespace GeneratedControllers.Conventions
 {
-    public class GenericRestControllerNameConvention : IControllerModelConvention
+    public class GeneratedNameControllerModelConvention : IControllerModelConvention
     {
         public void Apply(ControllerModel controller)
         {
-            if (!controller.ControllerType.IsGenericType || controller.ControllerType.GetGenericTypeDefinition() != typeof(GeneratedController<,>))
+            if (!controller.ControllerType.IsGenericType || controller.ControllerType.GetGenericTypeDefinition() != typeof(GeneratedControllerBase<,>))
             {
                 return;
             }

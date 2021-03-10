@@ -9,11 +9,11 @@ using System.Reflection;
 
 namespace GeneratedControllers.FeatureProviders
 {
-    public class GenericTypeControllerFeatureProvider : IApplicationFeatureProvider<ControllerFeature>
+    public class GeneratedControllerApplicationFeatureProvider : IApplicationFeatureProvider<ControllerFeature>
     {
         public void PopulateFeature(IEnumerable<ApplicationPart> parts, ControllerFeature feature)
         {
-            var currentAssembly = typeof(GenericTypeControllerFeatureProvider).Assembly;
+            var currentAssembly = typeof(GeneratedControllerApplicationFeatureProvider).Assembly;
 
             var candidates = currentAssembly
                 .GetExportedTypes()
@@ -24,7 +24,7 @@ namespace GeneratedControllers.FeatureProviders
             {
                 var idType = candidate.GetInterface(typeof(IContract<>).Name).GenericTypeArguments[0];
 
-                var controllerType = typeof(GeneratedController<,>);
+                var controllerType = typeof(GeneratedControllerBase<,>);
                 var controller = controllerType.MakeGenericType(candidate, idType);
 
                 feature.Controllers.Add(

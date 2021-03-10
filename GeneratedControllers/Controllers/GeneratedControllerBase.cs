@@ -8,12 +8,12 @@ namespace GeneratedControllers.Controllers
     [ApiController]
     [ApiVersion("1.0")]
     [Route("generated")]
-    public class GeneratedController<T, TId> : ControllerBase 
+    public class GeneratedControllerBase<T, TId> : ControllerBase 
         where T : class, IContract<TId>
     {
         private readonly Storage<T, TId> _storage;
 
-        public GeneratedController(Storage<T, TId> storage)
+        public GeneratedControllerBase(Storage<T, TId> storage)
         {
             _storage = storage;
         }
@@ -30,10 +30,11 @@ namespace GeneratedControllers.Controllers
             return Ok(_storage.GetById(id));
         }
 
-        [HttpPut("{id}")]
-        public ActionResult<T> Put(TId id)
+        [HttpPut]
+        public ActionResult<T> Put([FromBody] T value)
         {
-            return BadRequest();
+            _storage.AddOrUpdate(value.Id, value);
+            return Ok(value);
         }
 
         [HttpPost]
