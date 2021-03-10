@@ -1,5 +1,6 @@
 using GeneratedControllers.Conventions;
 using GeneratedControllers.FeatureProviders;
+using GeneratedControllers.Persistence;
 using GeneratedControllers.Swagger;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -27,6 +28,7 @@ namespace GeneratedControllers
             });
 
             services.AddSwagger();
+            services.AddSingleton(typeof(Storage<,>));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

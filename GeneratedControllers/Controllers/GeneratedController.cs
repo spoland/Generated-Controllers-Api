@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using GeneratedControllers.Contracts;
+using GeneratedControllers.Persistence;
+using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 
 namespace GeneratedControllers.Controllers
@@ -7,18 +9,25 @@ namespace GeneratedControllers.Controllers
     [ApiVersion("1.0")]
     [Route("generated")]
     public class GeneratedController<T, TId> : ControllerBase 
-        where T : class
+        where T : class, IContract<TId>
     {
+        private readonly Storage<T, TId> _storage;
+
+        public GeneratedController(Storage<T, TId> storage)
+        {
+            _storage = storage;
+        }
+
         [HttpGet]
         public ActionResult<IEnumerable<T>> Get()
         {
-            return BadRequest();
+            return Ok(_storage.GetAll());
         }
 
         [HttpGet("{id}")]
         public ActionResult<T> Get(TId id)
         {
-            return BadRequest();
+            return Ok(_storage.GetById(id));
         }
 
         [HttpPut("{id}")]
@@ -27,10 +36,11 @@ namespace GeneratedControllers.Controllers
             return BadRequest();
         }
 
-        [HttpPost("{id}")]
-        public ActionResult Post(TId id, [FromBody] T value)
+        [HttpPost]
+        public ActionResult<T> Post([FromBody] T value)
         {
-            return BadRequest();
+            _storage.AddOrUpdate(value.Id, value);
+            return CreatedAtAction("Get", value);
         }
     }
 }

@@ -1,21 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
 namespace GeneratedControllers.Persistence
 {
-    public class Storage<T> where T : class
+    public class Storage<T, TId> where T : class
     {
-        private Dictionary<Guid, T> storage = new Dictionary<Guid, T>();
+        private Dictionary<TId, T> storage = new Dictionary<TId, T>();
 
         public IEnumerable<T> GetAll() => storage.Values;
 
-        public T GetById(Guid id)
+        public T GetById(TId id)
         {
-            return storage.FirstOrDefault(x => x.Key == id).Value;
+            return storage.FirstOrDefault(x => x.Key.Equals(id)).Value;
         }
 
-        public void AddOrUpdate(Guid id, T item)
+        public void AddOrUpdate(TId id, T item)
         {
             storage[id] = item;
         }
