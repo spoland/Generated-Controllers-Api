@@ -32,7 +32,7 @@ namespace GeneratedControllers
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, SwaggerConfiguration swaggerConfiguration)
         {
             if (env.IsDevelopment())
             {
@@ -44,8 +44,7 @@ namespace GeneratedControllers
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
-                var apiVersions = new List<string> { "1.0", "2.0" };
-                apiVersions.ForEach(v => c.SwaggerEndpoint($"/swagger/{v}/swagger.json", v));
+                swaggerConfiguration.ApiVersions.ForEach(v => c.SwaggerEndpoint($"/swagger/{v}/swagger.json", v));
                 c.RoutePrefix = "";
             });
 
